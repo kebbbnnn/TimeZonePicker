@@ -32,6 +32,9 @@ public struct TimeZonePickerView: View {
                 }
             }.navigationTitle(String(localized: "Time Zone", table: nil, bundle: .module))
             .searchable(text: $searchText)
+            .onChange(of: self.searchText) { query in
+                self.dataSource.filter(searchString: query)
+            }
         }
 
     }
