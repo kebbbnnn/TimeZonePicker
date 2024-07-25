@@ -44,7 +44,7 @@ public class TimeZoneDataSource: ObservableObject {
         self.searchText = initialSearchText ?? ""
         
 //        let bundle = Bundle(for: TimeZoneDataSource.self)
-        let bundle = Bundle.module
+        /*let bundle = Bundle.module
         let path = bundle.path(forResource: "all_cities_adj", ofType: "plist")!
 
         let url = URL(fileURLWithPath: path)
@@ -52,7 +52,8 @@ public class TimeZoneDataSource: ObservableObject {
 
         let decoder = PropertyListDecoder()
 
-        var timeZones = try decoder.decode([TimeZoneLocation].self, from: data)
+        var timeZones = try decoder.decode([TimeZoneLocation].self, from: data)*/
+        var timeZones = try TimeZones.load()
 
         self.timeZones = timeZones
 
